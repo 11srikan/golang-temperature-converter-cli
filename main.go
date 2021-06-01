@@ -28,20 +28,16 @@ func main() {
 		if err != nil {
 			printError(errReadingInput)
 		}
-		_, err = fmt.Scanln(&originValue)
-		if err != nil {
-			printError(errReadingInput)
-		}
 		if originUnit == "C" {
 			convertToFahrenheit(originValue)
 		} else {
 			convertToCelsius(originValue)
 		}
+		fmt.Print("Would you like to convert another temperature ? (y/n) ")
 		_, err = fmt.Scanln(&shouldConvertAgain)
 		if err != nil {
 			printError(errReadingInput)
 		}
-		fmt.Print("Would you like to convert another temperature ? (y/n) ")
 		if strings.ToUpper(strings.TrimSpace(shouldConvertAgain)) != "Y" {
 			fmt.Println("Good bye!")
 			break
